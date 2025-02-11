@@ -6,6 +6,7 @@ public class ShrinkOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         transform.localScale *= shrinkFactor;
     }
 }

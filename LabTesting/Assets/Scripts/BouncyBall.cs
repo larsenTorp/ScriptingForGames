@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BouncyBall : MonoBehaviour
 {
-    public float bounceForce = 3f;
+    public float bounceForce = 3.5f;
 
     private void OnCollisionEnter(Collision collision)
     {
