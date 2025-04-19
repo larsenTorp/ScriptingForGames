@@ -1,8 +1,10 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,34 +20,32 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void HandleAnimations()
     {
-        //Triggers DoubleJump
+        // Handle Idling and Running
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            animator.SetTrigger(name: "Run");
+        }
+        else
+        {
+            animator.SetTrigger("Idle");
+        }
+
+        // Handle Jumping
         if (Input.GetButtonDown("Jump"))
         {
             animator.SetTrigger(name: "Jump");
         }
-        else
+
+        // Handle Wall Jumping
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            animator.SetTrigger(name: "Idle");
+            animator.SetTrigger(name: "Jump");
         }
 
         //Triggers Hit
         if (Input.GetKeyDown(KeyCode.H))
         {
             animator.SetTrigger(name: "Hit");
-        }
-        else
-        {
-            animator.SetTrigger(name: "Idle");
-        }
-
-        //Triggers Fall
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            animator.SetTrigger(name: "Fall");
-        }
-        else
-        {
-            animator.SetTrigger(name: "Idle");
         }
     }
 }
