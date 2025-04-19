@@ -21,7 +21,7 @@ public class CharacterAnimationController : MonoBehaviour
     private void HandleAnimations()
     {
         // Handle Idling and Running
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (Input.GetAxis("Horizontal") != 0)
         {
             animator.SetTrigger(name: "Run");
         }
@@ -37,9 +37,9 @@ public class CharacterAnimationController : MonoBehaviour
         }
 
         // Handle Wall Jumping
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.E))
         {
-            animator.SetTrigger(name: "Jump");
+            animator.SetTrigger(name: "WallJump");
         }
 
         //Triggers Hit
