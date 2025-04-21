@@ -17,4 +17,9 @@ public class SimpleImageBehavior : MonoBehaviour
     {
         imageObj.fillAmount = dataObj.value;
     }
+
+    private void Update()
+    {
+        UpdateWithFloatData();
+    }
 }

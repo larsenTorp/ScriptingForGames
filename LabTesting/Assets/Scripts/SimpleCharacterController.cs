@@ -7,8 +7,9 @@ public class SimpleCharacterController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 8f;
     public float gravity = -9.81f;
-    [SerializeField] public int jumps = 0;
+    public SimpleFloatData jumps;
 
+    private float jump;
     private CharacterController controller;
     private Vector3 velocity;
     private Transform thisTransform;
@@ -28,10 +29,11 @@ public class SimpleCharacterController : MonoBehaviour
         MoveCharacter();
         ApplyGravity();
         KeepCharacterOnXAxis();
+        jumps.value = jump / 2;
         
         if (controller.isGrounded)
         {
-            jumps = 2;
+            jump = 2;
             velocity.y = 0f;
         }
     }
@@ -43,10 +45,10 @@ public class SimpleCharacterController : MonoBehaviour
         controller.Move(move);
 
         // jumping
-        if (Input.GetButtonDown("Jump") && jumps > 0)
+        if (Input.GetButtonDown("Jump") && jump > 0)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            jumps -= 1;
+            jump -= 1;
         }
     }
 
