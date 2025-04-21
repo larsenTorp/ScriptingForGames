@@ -4,7 +4,8 @@ using UnityEngine;
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
-    
+    public SimpleFloatData jumps;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
