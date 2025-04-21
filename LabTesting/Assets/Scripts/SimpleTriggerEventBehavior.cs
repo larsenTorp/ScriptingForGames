@@ -13,6 +13,5 @@ public class SimpleTriggerEventBehavior : MonoBehaviour
     {
         // trigger the event and test with a debug message
         triggerEvent.Invoke();
-        Debug.Log("Congrat");
     }
 }
